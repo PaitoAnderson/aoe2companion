@@ -43,6 +43,7 @@ import {PlayerResolver} from "../resolver/player";
 import {ImportOngoingTask} from "../task/import-ongoing.task";
 import {RestController} from "../controller/rest.controller";
 import {SnakeNamingStrategy} from "../plugin/snake-naming.strategy";
+import {MigrateTask} from "../task/migrate.task";
 
 @Module({
     imports: [
@@ -111,6 +112,9 @@ export class TaskAndControllerModule {
         console.log('SERVICE_NAME', process.env.SERVICE_NAME);
         if (process.env.SERVICE_NAME?.endsWith('import')) {
             providers.push(ImportTask);
+        }
+        if (process.env.SERVICE_NAME?.endsWith('migrate')) {
+            providers.push(MigrateTask);
         }
         if (process.env.SERVICE_NAME?.endsWith('import-ongoing')) {
             providers.push(ImportOngoingTask);

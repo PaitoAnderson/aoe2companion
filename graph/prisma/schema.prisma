@@ -13,6 +13,10 @@ model key_value {
   value Json
 }
 
+
+
+
+
 model match {
   match_id           String   @id
   match_uuid         String?
@@ -88,11 +92,38 @@ model player {
   wins          Int?
   won           Boolean?
   match         match    @relation(fields: [match_id], references: [match_id])
+  profile       profile  @relation(fields: [profile_id], references: [profile_id])
 
   @@id([match_id, profile_id, slot])
   @@index([match_id], name: "IDX_58afd2c450f166eacbdf982841")
   @@index([profile_id], name: "IDX_ba3de28aa98207f3a21145feb8")
 }
+
+model profile {
+  profile_id      Int        @id
+  steam_id        String?
+  name            String?
+  clan            String?
+  last_match_time DateTime?
+  country         String?
+  avatarhash      String?
+
+  players         player[]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 model user {
   profile_id           Int     @id

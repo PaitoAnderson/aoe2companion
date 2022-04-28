@@ -18,6 +18,7 @@
     "refetch-multiple": "cross-env SERVICE_NAME=refetch-multiple nx serve graph",
     "refetch-repair": "cross-env SERVICE_NAME=refetch-repair nx serve graph",
     "import": "cross-env SERVICE_NAME=import nx serve graph",
+    "migrate": "cross-env SERVICE_NAME=migrate nx serve graph",
     "metric": "cross-env SERVICE_NAME=metric nx serve graph",
     "rank": "cross-env SERVICE_NAME=rank nx serve graph",
     "notify": "cross-env SERVICE_NAME=notify nx serve graph",
